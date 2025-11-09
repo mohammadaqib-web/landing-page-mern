@@ -11,10 +11,8 @@ export const submitMessage = async (req, res) => {
         .json({ success: false, message: "All fields are required" });
     }
 
-    // 1️⃣ Save to database
     await Contact.create({ name, email, message });
 
-    // 2️⃣ Send email
     const emailResult = await sendMail({ name, email, message });
 
     if (!emailResult.success) {
