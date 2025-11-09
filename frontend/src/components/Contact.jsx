@@ -57,7 +57,7 @@ export default function Contact() {
             {loading ? "Sending..." : "Send"}
           </button>
         </form>
-        {status && <p className="status">{status}</p>}
+        {status && !loading && <p className="status">{status}</p>}
       </div>
     </section>
   );
